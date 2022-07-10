@@ -18,7 +18,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 /**
- * 기본 동작, 트랜잭션이 없어서 문제 발생
+ * 트랜잭션 - 커넥션 파라미터 전달 방식 동기화
  */
 @Slf4j
 class MemberServiceV2Test {
