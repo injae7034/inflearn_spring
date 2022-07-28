@@ -58,4 +58,17 @@ public class UserDaoService {
 
         return null;
     }
+
+    public User updateNameById(int id, String name) {
+        User user = findOne(id);
+
+        // id로 못찾을 경우 null 값 반환
+        if (user == null) {
+            return null;
+        }
+
+        // 찾았을 경우 정상적으로 이름 수정 후 반환
+        user.setName(name);
+        return user;
+    }
 }
