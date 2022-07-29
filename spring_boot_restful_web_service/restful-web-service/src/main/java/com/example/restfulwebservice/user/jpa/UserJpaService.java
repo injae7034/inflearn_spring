@@ -1,4 +1,4 @@
-package com.example.restfulwebservice.user;
+package com.example.restfulwebservice.user.jpa;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

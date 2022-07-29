@@ -1,5 +1,6 @@
-package com.example.restfulwebservice.user;
+package com.example.restfulwebservice.post;
 
+import com.example.restfulwebservice.user.jpa.User;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
