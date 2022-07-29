@@ -45,4 +45,9 @@ public class PostJpaService {
         postRepository.delete(post);
     }
 
+    @Transactional
+    public void updatePost(Post post, String description) {
+        post.setDescription(description);
+    }
+
 }

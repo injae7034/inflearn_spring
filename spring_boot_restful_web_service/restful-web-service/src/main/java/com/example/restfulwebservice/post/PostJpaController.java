@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,6 +17,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @RestController
@@ -65,6 +67,24 @@ public class PostJpaController {
 
         postJpaService.deletePost(post);
     }
+
+    @PutMapping("/users/{userId}/posts/{postId}")
+    public ResponseEntity<Post> updatePostByUser(@PathVariable int userId,
+                                                 @PathVariable int postId,
+                                                 @RequestBody Map<String, String> description) {
+
+        User user = findUser(userId);
+
+        Post post = findPost(user, postId);
+
+        postJpaService.updatePost(post, description.get("description"));
+
+        URI location = ServletUriComponentsBuilder.fromCurrentRequest()
+                .build().toUri();
+
+        return ResponseEntity.created(location).build();
+    }
+
 
 
     private User findUser(@PathVariable int id) {
