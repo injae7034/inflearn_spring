@@ -29,11 +29,7 @@ public class PostJpaService {
         //post를 db에 저장함.
         postRepository.save(post);
 
-        //user와 post의 관계를 맺기 위해 user를 영속성컨텍스트에 올려줌.
-//        User findUser = userRepository.findById(user.getId()).get();
-//
-//        findUser.getPosts().add(post);
-
+        //user와 post의 연관관계를 맺어줌.
         user.getPosts().add(post);
 
         return post;
