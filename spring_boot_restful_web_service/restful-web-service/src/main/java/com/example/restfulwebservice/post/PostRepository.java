@@ -1,6 +1,5 @@
 package com.example.restfulwebservice.post;
 
-import com.example.restfulwebservice.post.Post;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

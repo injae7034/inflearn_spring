@@ -34,9 +34,6 @@ public class UserJpaController {
 
     private final UserJpaService userJpaService;
 
-    @Autowired
-    private PostRepository postRepository;
-
     @GetMapping("/users")
     public List<User> retrieveAllUsers() {
         return userJpaService.findAllUsers();
@@ -44,14 +41,10 @@ public class UserJpaController {
 
     @GetMapping("/users/{id}")
     public EntityModel<User> retrieveUser(@PathVariable int id) {
-        Optional<User> user = userJpaService.findUser(id);
-
-        if (!user.isPresent()) {
-            throw new UserNotFoundException(String.format("ID[%s] not found", id));
-        }
+        User user = findUser(id);
 
         // HATEOAS
-        EntityModel<User> model = EntityModel.of(user.get());
+        EntityModel<User> model = EntityModel.of(user);
         WebMvcLinkBuilder linkTo = linkTo(methodOn(this.getClass()).retrieveAllUsers());
 
         model.add(linkTo.withRel("all-users"));
@@ -79,13 +72,9 @@ public class UserJpaController {
     @PutMapping("/users/{id}")
     public ResponseEntity<User> updateUser(@PathVariable int id,
                                            @RequestBody Map<String, String> userName) {
-        Optional<User> user = userJpaService.findUser(id);
+        User user = findUser(id);
 
-        if (!user.isPresent()) {
-            throw new UserNotFoundException(String.format("ID[%s] not found", id));
-        }
-
-        userJpaService.updateUser(user.get(), userName.get("name"));
+        userJpaService.updateUser(user, userName.get("name"));
 
         URI location = ServletUriComponentsBuilder.fromCurrentRequest()
                 .build().toUri();
@@ -93,33 +82,12 @@ public class UserJpaController {
         return ResponseEntity.created(location).build();
     }
 
-    @GetMapping("/users/{id}/posts")
-    public List<Post> retrieveAllPostsByUser(@PathVariable int id) {
+    private User findUser(@PathVariable int id) {
         Optional<User> user = userJpaService.findUser(id);
 
         if (!user.isPresent()) {
             throw new UserNotFoundException(String.format("ID[%s] not found", id));
         }
-
-        return user.get().getPosts();
-    }
-
-    @PostMapping("/users/{id}/posts")
-    public ResponseEntity<Post> createPost(@PathVariable int id, @RequestBody Post post) {
-        Optional<User> user = userJpaService.findUser(id);
-
-        if (!user.isPresent()) {
-            throw new UserNotFoundException(String.format("ID[%s] not found", id));
-        }
-
-        post.setUser(user.get());
-        Post savedPost = postRepository.save(post);
-
-        URI location = ServletUriComponentsBuilder.fromCurrentRequest()
-                .path("/{id}")
-                .buildAndExpand(savedPost.getId())
-                .toUri();
-
-        return ResponseEntity.created(location).build();
+        return user.get();
     }
 }
