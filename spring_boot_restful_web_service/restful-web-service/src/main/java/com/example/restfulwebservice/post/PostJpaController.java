@@ -5,6 +5,7 @@ import com.example.restfulwebservice.user.jpa.User;
 import com.example.restfulwebservice.user.jpa.UserJpaService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -42,7 +43,7 @@ public class PostJpaController {
     }
 
     @PostMapping("/users/{id}/posts")
-    public ResponseEntity<Post> createPost(@PathVariable int id, @RequestBody Post post) {
+    public ResponseEntity<Post> createPostByUser(@PathVariable int id, @RequestBody Post post) {
         User user = findUser(id);
 
         Post savedPost = postJpaService.addPost(post, user);
@@ -54,6 +55,17 @@ public class PostJpaController {
 
         return ResponseEntity.created(location).build();
     }
+
+    @DeleteMapping("/users/{userId}/posts/{postId}")
+    public void deletePostByUser(@PathVariable int userId,
+                                   @PathVariable int postId) {
+        User user = findUser(userId);
+
+        Post post = findPost(user, postId);
+
+        postJpaService.deletePost(post);
+    }
+
 
     private User findUser(@PathVariable int id) {
         Optional<User> user = userJpaService.findUser(id);

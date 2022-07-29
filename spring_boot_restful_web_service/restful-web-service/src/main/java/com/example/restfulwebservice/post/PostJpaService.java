@@ -40,4 +40,9 @@ public class PostJpaService {
 
     }
 
+    @Transactional
+    public void deletePost(Post post) {
+        postRepository.delete(post);
+    }
+
 }
