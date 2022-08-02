@@ -15,7 +15,7 @@ public class FindPostRepository {
 
     public Optional<Post> findOne(User user, Integer postId) {
         return em.createQuery(
-                        "select p from Post p where p.user = :user and" +
+                        "select p from Post p where p.user =:user and" +
                                 " p.id = :postId",
                         Post.class)
                 .setParameter("user", user)
