@@ -1,6 +1,7 @@
 package com.example.orderservice.service;
 
 import com.example.orderservice.dto.OrderDto;
+import com.example.orderservice.exception.OrderNotFoundException;
 import com.example.orderservice.jpa.OrderEntity;
 import com.example.orderservice.jpa.OrderRepository;
 import lombok.RequiredArgsConstructor;
@@ -35,6 +36,10 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public OrderDto getOrderByOrderId(String orderId) {
         OrderEntity orderEntity = orderRepository.findByOrderId(orderId);
+
+        if (orderEntity == null) {
+            throw new OrderNotFoundException("Order not found");
+        }
 
         OrderDto orderDto = new ModelMapper().map(orderEntity, OrderDto.class);
 
