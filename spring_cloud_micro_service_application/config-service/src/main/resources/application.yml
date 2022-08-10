@@ -1,0 +1,12 @@
+server:
+  port: 8888
+
+spring:
+  application:
+    name: config-service
+  cloud:
+    config:
+      server:
+        git:
+          uri: file:///Users/injae/inflearn_spring/spring_cloud_micro_service_application/git-local-repo
+          default-label: master
