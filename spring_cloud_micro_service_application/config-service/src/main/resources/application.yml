@@ -8,5 +8,6 @@ spring:
     config:
       server:
         git:
-          uri: file:///Users/injae/inflearn_spring/spring_cloud_micro_service_application/git-local-repo
+#          uri: file:///Users/injae/git-local-repo
+          uri: https://github.com/injae7034/spring-cloud-config
           default-label: master
