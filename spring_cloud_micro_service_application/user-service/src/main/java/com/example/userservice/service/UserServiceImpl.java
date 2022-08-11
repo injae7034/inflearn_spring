@@ -1,5 +1,6 @@
 package com.example.userservice.service;
 
+import com.example.userservice.client.OrderServiceClient;
 import com.example.userservice.dto.UserDto;
 import com.example.userservice.dto.UserRepository;
 import com.example.userservice.exception.UserNotFoundException;
@@ -33,6 +34,8 @@ public class UserServiceImpl implements UserService {
     private final Environment env;
     private final RestTemplate restTemplate;
 
+    private final OrderServiceClient orderServiceClient;
+
     @Override
     public UserDto createUser(UserDto userDto) {
         userDto.setUserId(UUID.randomUUID().toString());
@@ -59,13 +62,17 @@ public class UserServiceImpl implements UserService {
 
         UserDto userDto = new ModelMapper().map(userEntity, UserDto.class);
 
-        String orderUrl = String.format(env.getProperty("order_service.url"), userId);
-        ResponseEntity<List<ResponseOrder>> orderListResponse =
-                restTemplate.exchange(orderUrl, HttpMethod.GET, null,
-                        new ParameterizedTypeReference<List<ResponseOrder>>() {
-                        });
+        //restTemplate 사용
+//        String orderUrl = String.format(env.getProperty("order_service.url"), userId);
+//        ResponseEntity<List<ResponseOrder>> orderListResponse =
+//                restTemplate.exchange(orderUrl, HttpMethod.GET, null,
+//                        new ParameterizedTypeReference<List<ResponseOrder>>() {
+//                        });
+//
+//        List<ResponseOrder> orderList = orderListResponse.getBody();
 
-        List<ResponseOrder> orderList = orderListResponse.getBody();
+        //feignClient 사용
+        List<ResponseOrder> orderList = orderServiceClient.getOrders(userId);
 
         userDto.setOrders(orderList);
 

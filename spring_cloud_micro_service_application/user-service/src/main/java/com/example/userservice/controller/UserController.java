@@ -6,6 +6,7 @@ import com.example.userservice.service.UserService;
 import com.example.userservice.vo.Greeting;
 import com.example.userservice.vo.RequestUser;
 import com.example.userservice.vo.ResponseUser;
+import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,20 +26,12 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/")
-@CrossOrigin(origins = "*", allowedHeaders = "*")
+@RequiredArgsConstructor
 public class UserController {
 
-    @Autowired
-    private Greeting greeting;
-
-    private Environment env;
+    private final Greeting greeting;
+    private final Environment env;
     private final UserService userService;
-
-    @Autowired
-    public UserController(Environment env, UserService userService) {
-        this.env = env;
-        this.userService = userService;
-    }
 
     @GetMapping("/health_check")
     public String status() {
