@@ -12,12 +12,12 @@ spring:
       path: /h2-console
   datasource:
     driver-class-name: org.h2.Driver
-    url: jdbc:h2:tcp://localhost/~/e-commerce
+    url: jdbc:h2:mem/orderService
     username: sa
     password:
   jpa:
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
     properties:
       hibernate:
         format_sql: true

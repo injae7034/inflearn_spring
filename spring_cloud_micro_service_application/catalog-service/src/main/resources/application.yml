@@ -13,7 +13,7 @@ spring:
       path: /h2-console
   datasource:
     driver-class-name: org.h2.Driver
-    url: jdbc:h2:tcp://localhost/~/e-commerce
+    url: jdbc:h2:mem/catalogService
     username: sa
     password:
   jpa:
