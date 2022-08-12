@@ -6,7 +6,9 @@ import com.example.userservice.dto.UserRepository;
 import com.example.userservice.exception.UserNotFoundException;
 import com.example.userservice.jpa.UserEntity;
 import com.example.userservice.vo.ResponseOrder;
+import feign.FeignException;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.core.ParameterizedTypeReference;
@@ -24,6 +26,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
+@Slf4j
 @Service
 @RequiredArgsConstructor
 public class UserServiceImpl implements UserService {
@@ -71,8 +74,13 @@ public class UserServiceImpl implements UserService {
 //
 //        List<ResponseOrder> orderList = orderListResponse.getBody();
 
-        //feignClient 사용
-        List<ResponseOrder> orderList = orderServiceClient.getOrders(userId);
+        //feignClient 사용 + 예외 처리
+        List<ResponseOrder> orderList = null;
+        try {
+            orderList = orderServiceClient.getOrders(userId);
+        } catch (FeignException e) {
+            log.error(e.getMessage());
+        }
 
         userDto.setOrders(orderList);
 
