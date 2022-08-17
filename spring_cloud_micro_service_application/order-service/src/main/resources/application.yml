@@ -12,9 +12,9 @@ spring:
       path: /h2-console
   datasource:
     driver-class-name: org.h2.Driver
-    url: jdbc:h2:mem/orderService
-    username: sa
-    password:
+    url: jdbc:h2:mem:orderService
+#    username: sa
+#    password:
   jpa:
     hibernate:
       ddl-auto: update
