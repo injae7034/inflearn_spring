@@ -13,18 +13,19 @@ spring:
       path: /h2-console
   datasource:
     driver-class-name: org.h2.Driver
-    url: jdbc:h2:mem/catalogService
+    url: jdbc:h2:mem:catalogService
+    initialization-mode: always
     username: sa
     password:
   jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
     hibernate:
       ddl-auto: create-drop
-      show-sql: true
-      generate-ddl: true
-      defer-datasource-initialization: true
     properties:
       hibernate:
         format_sql: true
+        show_sql: true
+    defer-datasource-initialization: true
 
 eureka:
   client:
