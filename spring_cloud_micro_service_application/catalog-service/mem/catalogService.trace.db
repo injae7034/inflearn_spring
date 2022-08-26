@@ -1,0 +1,18 @@
+08-26 16:36:51 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "CATALOG" not found; SQL statement:
+insert into catalog(product_id, product_name, stock, unit_price) values('CATALOG-001', 'Berlin', 100, 1500) [42102-176]
+08-26 16:38:06 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "CATALOG" not found; SQL statement:
+insert into catalog(product_id, product_name, stock, unit_price) values('CATALOG-001', 'Berlin', 100, 1500) [42102-176]
+08-26 16:38:48 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "CATALOG" not found; SQL statement:
+insert into catalog(product_id, product_name, stock, unit_price) values('CATALOG-001', 'Berlin', 100, 1500) [42102-176]
+08-26 16:40:51 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "CATALOG" not found; SQL statement:
+insert into catalog(product_id, product_name, stock, unit_price) values('CATALOG-001', 'Berlin', 100, 1500) [42102-176]
+08-26 16:42:42 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "CATALOG" not found; SQL statement:
+insert into catalog(product_id, product_name, stock, unit_price) values('CATALOG-001', 'Berlin', 100, 1500) [42102-176]
+08-26 16:43:28 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "CATALOG" not found; SQL statement:
+insert into catalog(product_id, product_name, stock, unit_price) values('CATALOG-001', 'Berlin', 100, 1500) [42102-176]
