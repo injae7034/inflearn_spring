@@ -19,7 +19,7 @@ import java.util.Map;
 @RequiredArgsConstructor
 public class KafkaConsumer {
 
-    CatalogRepository repository;
+    private final CatalogRepository repository;
 
     @KafkaListener(topics = "example-catalog-topic")
     public void updateQty(String kafkaMessage) {
