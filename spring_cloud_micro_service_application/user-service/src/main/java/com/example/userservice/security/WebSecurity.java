@@ -19,7 +19,7 @@ public class WebSecurity  {
     private final UserService userService;
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
     private final Environment env;
-    public static final String MY_IP_ADDRESS = "172.30.176.1";
+    public static final String MY_IP_ADDRESS = "192.168.0.33";
 
 
     @Bean
