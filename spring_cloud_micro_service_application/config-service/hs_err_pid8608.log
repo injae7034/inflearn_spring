@@ -1,0 +1,195 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (mmap) failed to map 266338304 bytes for Failed to commit area from 0x00000000e0000000 to 0x00000000efe00000 of length 266338304.
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   The process is running with CompressedOops enabled, and the Java Heap may be blocking the growth of the native heap
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (./open/src/hotspot/os/windows/os_windows.cpp:3276), pid=8608, tid=18056
+#
+# JRE version:  (11.0.13+10) (build )
+# Java VM: Java HotSpot(TM) 64-Bit Server VM (11.0.13+10-LTS-370, mixed mode, sharing, tiered, compressed oops, g1 gc, windows-amd64)
+# No core dump will be written. Minidumps are not enabled by default on client versions of Windows
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: -Dorg.gradle.internal.worker.tmpdir=C:\Users\injae\inflearn_spring\spring_cloud_micro_service_application\config-service\build\tmp\test\work -Dorg.gradle.native=false -Xmx512m -Dfile.encoding=x-windows-949 -Duser.country=KR -Duser.language=ko -Duser.variant -ea worker.org.gradle.process.internal.worker.GradleWorkerMain 'Gradle Test Executor 15'
+
+Host: Intel(R) Core(TM) i7-8565U CPU @ 1.80GHz, 8 cores, 15G,  Windows 10 , 64 bit Build 19041 (10.0.19041.1889)
+Time: Mon Aug 29 16:10:39 2022 대한민국 표준시 elapsed time: 0.406218 seconds (0d 0h 0m 0s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x0000016583d9a000):  JavaThread "Unknown thread" [_thread_in_vm, id=18056, stack(0x000000463b600000,0x000000463b700000)]
+
+Stack: [0x000000463b600000,0x000000463b700000]
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [jvm.dll+0x62870a]
+V  [jvm.dll+0x761f2f]
+V  [jvm.dll+0x7635d9]
+V  [jvm.dll+0x763c63]
+V  [jvm.dll+0x23d728]
+V  [jvm.dll+0x625aba]
+V  [jvm.dll+0x61a855]
+V  [jvm.dll+0x2f242c]
+V  [jvm.dll+0x2f22b2]
+V  [jvm.dll+0x2f6fd6]
+V  [jvm.dll+0x3395ff]
+V  [jvm.dll+0x339030]
+V  [jvm.dll+0x2cfa38]
+V  [jvm.dll+0x2d0ba6]
+V  [jvm.dll+0x73c547]
+V  [jvm.dll+0x73dddf]
+V  [jvm.dll+0x346369]
+V  [jvm.dll+0x721e60]
+V  [jvm.dll+0x3b500f]
+V  [jvm.dll+0x3b7121]
+C  [jli.dll+0x5207]
+C  [ucrtbase.dll+0x21bb2]
+C  [KERNEL32.DLL+0x17034]
+C  [ntdll.dll+0x52651]
+
+
+---------------  P R O C E S S  ---------------
+
+Threads class SMR info:
+_java_thread_list=0x0000016581b6f960, length=0, elements={
+}
+
+Java Threads: ( => current thread )
+
+Other Threads:
+  0x0000016583dae000 GCTaskThread "GC Thread#0" [stack: 0x000000463b700000,0x000000463b800000] [id=9208]
+  0x0000016583dbe000 ConcurrentGCThread "G1 Main Marker" [stack: 0x000000463b800000,0x000000463b900000] [id=15256]
+  0x0000016583dbf800 ConcurrentGCThread "G1 Conc#0" [stack: 0x000000463b900000,0x000000463ba00000] [id=9812]
+
+[error occurred during error reporting (printing all threads), id 0xc0000005, EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00007ffdc50fecc7]
+
+VM state:not at safepoint (not fully initialized)
+
+VM Mutex/Monitor currently owned by a thread:  ([mutex/lock_event])
+[0x0000016583d95820] Heap_lock - owner thread: 0x0000016583d9a000
+
+Heap address: 0x00000000e0000000, size: 512 MB, Compressed Oops mode: Non-zero based: 0x00000000e0000000
+Narrow klass base: 0x0000000000000000, Narrow klass shift: 0
+
+GC Heap History (0 events):
+No events
+
+Deoptimization events (0 events):
+No events
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (0 events):
+No events
+
+Events (0 events):
+No events
+
+
+Dynamic libraries:
+0x00007ff79b1d0000 - 0x00007ff79b1df000 	C:\Program Files\Java\jdk-11.0.13\bin\java.exe
+0x00007ffe446d0000 - 0x00007ffe448c8000 	C:\WINDOWS\SYSTEM32\ntdll.dll
+0x00007ffe42d30000 - 0x00007ffe42ded000 	C:\WINDOWS\System32\KERNEL32.DLL
+0x00007ffe422a0000 - 0x00007ffe4256e000 	C:\WINDOWS\System32\KERNELBASE.dll
+0x00007ffe41f00000 - 0x00007ffe42000000 	C:\WINDOWS\System32\ucrtbase.dll
+0x00007ffe05e40000 - 0x00007ffe05e55000 	C:\Program Files\Java\jdk-11.0.13\bin\VCRUNTIME140.dll
+0x00007ffe060e0000 - 0x00007ffe060f8000 	C:\Program Files\Java\jdk-11.0.13\bin\jli.dll
+0x00007ffe43ce0000 - 0x00007ffe43d8e000 	C:\WINDOWS\System32\ADVAPI32.dll
+0x00007ffe438e0000 - 0x00007ffe4397e000 	C:\WINDOWS\System32\msvcrt.dll
+0x00007ffe430f0000 - 0x00007ffe4318c000 	C:\WINDOWS\System32\sechost.dll
+0x00007ffe43d90000 - 0x00007ffe43eb5000 	C:\WINDOWS\System32\RPCRT4.dll
+0x00007ffe42f50000 - 0x00007ffe430f0000 	C:\WINDOWS\System32\USER32.dll
+0x00007ffe2a4e0000 - 0x00007ffe2a77a000 	C:\WINDOWS\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.19041.1110_none_60b5254171f9507e\COMCTL32.dll
+0x00007ffe42700000 - 0x00007ffe42722000 	C:\WINDOWS\System32\win32u.dll
+0x00007ffe44350000 - 0x00007ffe4437a000 	C:\WINDOWS\System32\GDI32.dll
+0x00007ffe41df0000 - 0x00007ffe41efb000 	C:\WINDOWS\System32\gdi32full.dll
+0x00007ffe42050000 - 0x00007ffe420ed000 	C:\WINDOWS\System32\msvcp_win.dll
+0x00007ffe35e70000 - 0x00007ffe35e7a000 	C:\WINDOWS\SYSTEM32\VERSION.dll
+0x00007ffe42f20000 - 0x00007ffe42f50000 	C:\WINDOWS\System32\IMM32.DLL
+0x00007ffdfc0f0000 - 0x00007ffdfc18b000 	C:\Program Files\Java\jdk-11.0.13\bin\msvcp140.dll
+0x00007ffdc4e20000 - 0x00007ffdc5933000 	C:\Program Files\Java\jdk-11.0.13\bin\server\jvm.dll
+0x00007ffe42f10000 - 0x00007ffe42f18000 	C:\WINDOWS\System32\PSAPI.DLL
+0x00007ffe176f0000 - 0x00007ffe17717000 	C:\WINDOWS\SYSTEM32\WINMM.dll
+0x00007ffe39680000 - 0x00007ffe39689000 	C:\WINDOWS\SYSTEM32\WSOCK32.dll
+0x00007ffe44590000 - 0x00007ffe445fb000 	C:\WINDOWS\System32\WS2_32.dll
+0x00007ffe40640000 - 0x00007ffe40652000 	C:\WINDOWS\SYSTEM32\kernel.appcore.dll
+0x00007ffe20990000 - 0x00007ffe209a0000 	C:\Program Files\Java\jdk-11.0.13\bin\verify.dll
+0x00007ffe3fb90000 - 0x00007ffe3fd74000 	C:\WINDOWS\SYSTEM32\DBGHELP.DLL
+0x00007ffe26880000 - 0x00007ffe268ac000 	C:\WINDOWS\SYSTEM32\dbgcore.DLL
+0x00007ffe420f0000 - 0x00007ffe42172000 	C:\WINDOWS\System32\bcryptPrimitives.dll
+0x00007ffe02900000 - 0x00007ffe02928000 	C:\Program Files\Java\jdk-11.0.13\bin\java.dll
+0x00007ffe1ce80000 - 0x00007ffe1ce8a000 	C:\Program Files\Java\jdk-11.0.13\bin\jimage.dll
+0x00007ffe04230000 - 0x00007ffe04246000 	C:\Program Files\Java\jdk-11.0.13\bin\zip.dll
+
+dbghelp: loaded successfully - version: 4.0.5 - missing functions: none
+symbol engine: initialized successfully - sym options: 0x614 - pdb path: .;C:\Program Files\Java\jdk-11.0.13\bin;C:\WINDOWS\SYSTEM32;C:\WINDOWS\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.19041.1110_none_60b5254171f9507e;C:\Program Files\Java\jdk-11.0.13\bin\server
+
+VM Arguments:
+jvm_args: -Dorg.gradle.internal.worker.tmpdir=C:\Users\injae\inflearn_spring\spring_cloud_micro_service_application\config-service\build\tmp\test\work -Dorg.gradle.native=false -Xmx512m -Dfile.encoding=x-windows-949 -Duser.country=KR -Duser.language=ko -Duser.variant -ea 
+java_command: worker.org.gradle.process.internal.worker.GradleWorkerMain 'Gradle Test Executor 15'
+java_class_path (initial): C:\\Users\\injae\\.gradle\\caches\\7.5\\workerMain\\gradle-worker.jar;C:\\Users\\injae\\inflearn_spring\\spring_cloud_micro_service_application\\config-service\\build\\classes\\java\\test;C:\\Users\\injae\\inflearn_spring\\spring_cloud_micro_service_application\\config-service\\build\\classes\\java\\main;C:\\Users\\injae\\inflearn_spring\\spring_cloud_micro_service_application\\config-service\\build\\resources\\main;C:\\Users\\injae\\.gradle\\caches\\modules-2\\files-2.1\\org.springframework.cloud\\spring-cloud-config-server\\3.1.3\\d7f4c9a006843b38270f36d76a55a82499cb87e8\\spring-cloud-config-server-3.1.3.jar;C:\\Users\\injae\\.gradle\\caches\\modules-2\\files-2.1\\org.springframework.boot\\spring-boot-starter-actuator\\2.7.2\\8a87caacd6d4f10c542f3bbafe20828f48b1119f\\spring-boot-starter-actuator-2.7.2.jar;C:\\Users\\injae\\.gradle\\caches\\modules-2\\files-2.1\\org.springframework.cloud\\spring-cloud-starter-bootstrap\\3.1.3\\2f6d961e78ec63bf9e395a16293a189963e3a6f0\\spring-cloud-starter-bootstrap-3.1.3.jar;C:\\Users\\injae\\.gradle\\caches\\modules-2\\files-2.1\\org.springframework.cloud\\spring-cloud-starter-bus-amqp\\3.1.2\\949dfc054da54c0f1352725e6ca50e8571986792\\spring-cloud-starter-bus-amqp-3.1.2.jar;C:\\Users\\injae\\.gradle\\caches\\modules-2\\files-2.1\\org.springframework.boot\\spring-boot-starter-test\\2.7.2\\2466f00b26fcece78b6d7c6d7772de0c0f66947c\\spring-boot-starter-test-2.7.2.jar;C:\\Users\\injae\\.gradle\\caches\\modules-2\\files-2.1\\org.springframework.cloud\\spring-cloud-config-client\\3.1.3\\bc13ed3a718a9e567c95ad3b5270af60d7c05f16\\spring-cloud-config-client-3.1.3.jar;C:\\Users\\injae\\.gradle\\caches\\modules-2\\files-2.1\\org.springframework.boot\\spring-boot-starter-web\\2.7.2\\dd8a77a26900a86d9962598cbbd360f6b69bab5e\\spring-boot-starter-web-2.7.2.jar;C:\\Users\\injae\\.gradle\\caches\\modules-2\\files-2.1\\org.springframework.cloud\\spring-cloud-starter-stream-rabbit\\3.2.4\\ef0a4759ac9294a75b6843ed333d6baf0
+Launcher Type: SUN_STANDARD
+
+[Global flags]
+     intx CICompilerCount                          = 4                                         {product} {ergonomic}
+     uint ConcGCThreads                            = 2                                         {product} {ergonomic}
+     uint G1ConcRefinementThreads                  = 8                                         {product} {ergonomic}
+   size_t G1HeapRegionSize                         = 1048576                                   {product} {ergonomic}
+    uintx GCDrainStackTargetSize                   = 64                                        {product} {ergonomic}
+   size_t InitialHeapSize                          = 266338304                                 {product} {ergonomic}
+   size_t MarkStackSize                            = 4194304                                   {product} {ergonomic}
+   size_t MaxHeapSize                              = 536870912                                 {product} {command line}
+   size_t MinHeapDeltaBytes                        = 1048576                                   {product} {ergonomic}
+    uintx NonNMethodCodeHeapSize                   = 5836300                                {pd product} {ergonomic}
+    uintx NonProfiledCodeHeapSize                  = 122910970                              {pd product} {ergonomic}
+    uintx ProfiledCodeHeapSize                     = 122910970                              {pd product} {ergonomic}
+    uintx ReservedCodeCacheSize                    = 251658240                              {pd product} {ergonomic}
+     bool SegmentedCodeCache                       = true                                      {product} {ergonomic}
+     bool UseCompressedClassPointers               = true                                 {lp64_product} {ergonomic}
+     bool UseCompressedOops                        = true                                 {lp64_product} {ergonomic}
+     bool UseG1GC                                  = true                                      {product} {ergonomic}
+     bool UseLargePagesIndividualAllocation        = false                                  {pd product} {ergonomic}
+
+Logging:
+Log output configuration:
+ #0: stdout all=warning uptime,level,tags
+ #1: stderr all=off uptime,level,tags
+
+Environment Variables:
+JAVA_HOME=C:\Program Files\Java\jdk-11.0.13\
+CLASSPATH=C:\Users\injae\inflearn_spring\spring_cloud_micro_service_application\config-service\\gradle\wrapper\gradle-wrapper.jar
+PATH=C:\Users\injae\AppData\Local\Programs\Python\Python310\Scripts\;C:\Users\injae\AppData\Local\Programs\Python\Python310\;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\NAT Service;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\Program Files\MySQL\MySQL Server 8.0\bin;C:\Users\injae\Downloads\mysql-connector-java-8.0.20\mysql-connector-java-8.0.20;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files (x86)\IncrediBuild;C:\Program Files\Git\cmd;C:\Program Files\dotnet\;C:\Users\injae\Downloads\gradle-7.0.2-bin\gradle-7.0.2\bin;C:\Users\injae\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Python 3.10;C:\Program Files\nodejs\;C:\ProgramData\chocolatey\bin;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\Users\injae\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\RabbitMQ Server\rabbitmq_server-3.10.7\sbin;C:\Program Files\Java\jdk-11.0.13\bin;C:\Ruby30-x64\bin;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;C:\Users\injae\AppData\Local\Microsoft\WindowsApps;C:\Users\injae\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\injae\Downloads\mysql-connector-java-8.0.20\mysql-connector-java-8.0.20;C:\Users\injae\AppData\Local\Microsoft\WindowsApps;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2021.2.1\bin;;C:\Users\injae\.dotnet\tools;C:\Users\injae\AppData\Local\GitHubDesktop\bin;C:\Users\injae\AppData\Roaming\npm;C:\Users\injae\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\RabbitMQ Server\rabbitmq_server-3.10.7\sbin;C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Erlang OTP 25 (x64);C:\Program Files\Ja
+USERNAME=injae
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 142 Stepping 12, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows 10 , 64 bit Build 19041 (10.0.19041.1889)
+Hyper-V role detected
+
+CPU:total 8 (initial active 8) (4 cores per cpu, 2 threads per core) family 6 model 142 stepping 12 microcode 0xca, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, avx2, aes, clmul, erms, 3dnowpref, lzcnt, ht, tsc, tscinvbit, bmi1, bmi2, adx, fma
+
+Memory: 4k page, system-wide physical 16197M (244M free)
+TotalPageFile size 60687M (AvailPageFile size 69M)
+current process WorkingSet (physical memory assigned to process): 9M, peak: 9M
+current process commit charge ("private bytes"): 59M, peak: 313M
+
+vm_info: Java HotSpot(TM) 64-Bit Server VM (11.0.13+10-LTS-370) for windows-amd64 JRE (11.0.13+10-LTS-370), built on Sep 15 2021 22:10:36 by "mach5one" with MS VC++ 15.9 (VS2017)
+
+END.
