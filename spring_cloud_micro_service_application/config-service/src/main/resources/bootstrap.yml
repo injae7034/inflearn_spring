@@ -1,6 +1,7 @@
 encrypt:
   key-store:
-    location: file:///${user.home}/keystore/apiEncryptionKey.jks
+#    location: file:///${user.home}/keystore/apiEncryptionKey.jks
+    location: file:apiEncryptionKey.jks
     password: 1q2w3e
     alias: apiEncryptionKey
 
