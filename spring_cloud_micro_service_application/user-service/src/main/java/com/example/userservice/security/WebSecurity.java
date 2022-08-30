@@ -32,7 +32,7 @@ public class WebSecurity  {
         http.authorizeRequests().antMatchers("/health_check").permitAll();
         http.authorizeRequests().antMatchers("/login").permitAll();
         http.authorizeRequests().antMatchers("/**")
-                .access("hasIpAddress(192.168.0.2) or hasIpAddress(127.0.0.1)")
+                .access("hasIpAddress('" + "172.18.0.5" + "')")
                 .and()
                 .authenticationManager(authenticationManager)
                 .addFilter(getAuthenticationFilter(authenticationManager));
