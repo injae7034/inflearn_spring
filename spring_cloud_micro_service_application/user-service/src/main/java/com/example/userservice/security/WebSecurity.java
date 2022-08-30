@@ -27,9 +27,12 @@ public class WebSecurity  {
         AuthenticationManager authenticationManager = getAuthenticationFilter(http);
 
         http.csrf().disable();
+        http.authorizeRequests().antMatchers("h2-console/**").permitAll();
         http.authorizeRequests().antMatchers("/actuator/**").permitAll();
+        http.authorizeRequests().antMatchers("/health_check").permitAll();
+        http.authorizeRequests().antMatchers("/login").permitAll();
         http.authorizeRequests().antMatchers("/**")
-                .hasIpAddress(MY_IP_ADDRESS)
+                .access("hasIpAddress(192.168.0.2) or hasIpAddress(127.0.0.1)")
                 .and()
                 .authenticationManager(authenticationManager)
                 .addFilter(getAuthenticationFilter(authenticationManager));
